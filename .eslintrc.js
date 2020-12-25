@@ -26,6 +26,8 @@ module.exports = {
         'plugin:prettier/recommended' // Make this the last element so prettier config overrides other formatting rules
     ],
     rules: {
+        'no-unused-vars': 'warn',
+        'react/prop-types': 'warn',
         'prettier/prettier': ['error', {}, { usePrettierrc: true }] // Use our .prettierrc file as source
     }
 };

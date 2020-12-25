@@ -1,0 +1,35 @@
+.capital {
+    text-transform: capitalize;
+}
+.upper {
+    text-transform: uppercase;
+}
+body {
+    background-color: #f5f6fa;
+}
+body * {
+    box-sizing: border-box;
+}
+.app {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+.app__left {
+    flex: 0.8;
+}
+.app__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.app__state {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 990px) {
+    .app {
+        flex-direction: column;
+    }
+}
