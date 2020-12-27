@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import countryContext from './../context/countryContext';
 import { v4 as uuidv4 } from 'uuid';
 import { FormControl, MenuItem, Select } from '@material-ui/core';
 
-const Header = () => {
-    const CountryContext = useContext(countryContext);
-    const { countries, selectedCountry, getCountries, getCountryData } = CountryContext;
+const Header = ({ data }) => {
+    const { countries, selectedCountry, getCountries, getCountryData } = data;
     const [selection, setSelectedCountry] = useState(selectedCountry);
-
     useEffect(() => {
         getCountryData('all');
         getCountries();
@@ -49,7 +46,6 @@ const Header = () => {
 };
 
 Header.propTypes = {
-    countries: PropTypes.array.isRequired,
-    selectedCountry: PropTypes.string.isRequired
+    data: PropTypes.object.isRequired
 };
 export default React.memo(Header);

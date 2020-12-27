@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import InfoBox from '../components/InfoBox';
-import countryContext from './../context/countryContext';
 
-const DataBoxes = () => {
-    const CountryContext = useContext(countryContext);
-    const { cases, recovered, deaths, todayCases, todayDeaths, todayRecovered } = CountryContext;
+const DataBoxes = ({ data }) => {
+    const { cases, recovered, deaths, todayCases, todayDeaths, todayRecovered } = data;
     return (
         <div className="app__state">
             <InfoBox title="Coronavirus" cases={todayCases} total={cases} />
@@ -14,4 +12,4 @@ const DataBoxes = () => {
     );
 };
 
-export default DataBoxes;
+export default React.memo(DataBoxes);

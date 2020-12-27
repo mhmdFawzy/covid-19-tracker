@@ -2,13 +2,16 @@ import './App.css';
 import React from 'react';
 import LeftSide from './containers/LeftSide';
 import RightSide from './containers/RightSide';
+import CountryState from './context/CountryState';
 
 function App() {
     return (
-        <div className="app">
-            <LeftSide />
-            <RightSide />
-        </div>
+        <CountryState>
+            <div className="app">
+                <LeftSide />
+                <RightSide />
+            </div>
+        </CountryState>
     );
 }
 
