@@ -1,19 +1,18 @@
 import React, { useContext } from 'react';
-import { Card, CardContent } from '@material-ui/core';
 import countryContext from './../context/countryContext';
-import Table from './../components/Table';
-import Graph from './../components/Graph';
+const Table = React.lazy(() => import('./../components/Table'));
+const Graph = React.lazy(() => import('./../components/Graph'));
 
 const RightSide = () => {
     const CountryContext = useContext(countryContext);
-    const { sortedCountries, historical } = CountryContext;
+    const { sortedCountries, historical, casesType } = CountryContext;
     return (
-        <Card className="app__right">
-            <CardContent>
+        <div className="card app__right">
+            <div>
                 <Table countries={sortedCountries} />
-                <Graph countries={historical} />
-            </CardContent>
-        </Card>
+                <Graph countries={historical} casesType={casesType} />
+            </div>
+        </div>
     );
 };
 

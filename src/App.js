@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
-import LeftSide from './containers/LeftSide';
-import RightSide from './containers/RightSide';
+const LeftSide = React.lazy(() => import('./containers/LeftSide'));
+const RightSide = React.lazy(() => import('./containers/RightSide'));
 import CountryState from './context/CountryState';
 
 function App() {

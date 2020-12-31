@@ -1,10 +1,10 @@
 import React from 'react';
-import numeral from 'numeral';
-import { Circle, Popup } from 'react-leaflet';
+import { Circle } from 'react-leaflet';
 import { v4 as uuidv4 } from 'uuid';
+import numeral from 'numeral';
 
 // css for circles according to casses choise
-const casesTypeColors = {
+export const casesTypeColors = {
     cases: {
         hex: '#CC1034',
         // size of circle
@@ -19,8 +19,10 @@ const casesTypeColors = {
         multiplier: 2000
     }
 };
+export const prettyPrintStat = (stat, sign = '=') => `${sign}${numeral(stat).format('0.0a')}`;
+
 // draw circles around countries on map
-export const showDataOnMap = (data, casesType = 'cases') => {
+export const showDataOnMap = (data, selectedLat, selectedLong, casesType = 'cases') =>
     data.map((country) => (
         <Circle
             key={uuidv4()}
@@ -28,24 +30,5 @@ export const showDataOnMap = (data, casesType = 'cases') => {
             color={casesTypeColors[casesType].hex}
             fillColor={casesTypeColors[casesType].hex}
             fillOpacity={0.4}
-            radius={Math.sqrt(country[casesType]) * casesTypeColors[casesType].multiplier}>
-            <Popup>
-                <div className="info-container">
-                    <div
-                        className="info-flag"
-                        style={{ backgroundImage: `url(${country.countryInfo.flag})` }}></div>
-                    <div className="info-name">{country.country}</div>
-                    <div className="info-confirmed">
-                        Cases: {numeral(country.cases).format('0,0')}
-                    </div>
-                    <div className="info-recovered">
-                        Recovered: {numeral(country.recovered).format('0,0')}
-                    </div>
-                    <div className="info-deaths">
-                        Deaths: {numeral(country.deaths).format('0,0')}
-                    </div>
-                </div>
-            </Popup>
-        </Circle>
+            radius={Math.sqrt(country[casesType]) * casesTypeColors[casesType].multiplier}></Circle>
     ));
-};

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import HeaderContainer from '../components/Header';
-import DataBoxes from './DataBoxes';
-import Map from '../components/Map';
+const HeaderContainer = React.lazy(() => import('../components/Header'));
+const DataBoxes = React.lazy(() => import('./DataBoxes'));
+const Map = React.lazy(() => import('../components/Map'));
 import countryContext from './../context/countryContext';
 
 const LeftSide = () => {
@@ -12,6 +12,8 @@ const LeftSide = () => {
         getCountries,
         getCountryData,
         cases,
+        casesType,
+        setCasesType,
         recovered,
         deaths,
         todayCases,
@@ -25,9 +27,20 @@ const LeftSide = () => {
         <div className="app__left">
             <HeaderContainer data={{ countries, selectedCountry, getCountries, getCountryData }} />
             <DataBoxes
-                data={{ cases, recovered, deaths, todayCases, todayDeaths, todayRecovered }}
+                data={{
+                    cases,
+                    recovered,
+                    deaths,
+                    todayCases,
+                    todayDeaths,
+                    todayRecovered,
+                    setCasesType,
+                    casesType
+                }}
             />
-            <Map data={{ selectedLat, selectedLong, zoom, countries }} />
+            <Map
+                data={{ selectedLat, selectedLong, zoom, countries, selectedCountry, casesType }}
+            />
         </div>
     );
 };

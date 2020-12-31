@@ -8,8 +8,9 @@ const CountryState = ({ children }) => {
         countries: [],
         sortedCountries: [],
         historical: {},
-        selectedCountry: 'worldwide',
+        selectedCountry: 'all',
         cases: 0,
+        casesType: 'cases',
         recovered: 0,
         deaths: 0,
         todayCases: 0,
@@ -75,6 +76,12 @@ const CountryState = ({ children }) => {
                 });
         }
     };
+    const setCasesType = (type) => {
+        dispatch({
+            type: 'SET_CASES_TYPE',
+            payload: type
+        });
+    };
     return (
         <countryContext.Provider
             value={{
@@ -83,6 +90,7 @@ const CountryState = ({ children }) => {
                 sortedCountries: state.sortedCountries,
                 historical: state.historical,
                 cases: state.cases,
+                casesType: state.casesType,
                 recovered: state.recovered,
                 deaths: state.deaths,
                 todayCases: state.todayCases,
@@ -92,7 +100,8 @@ const CountryState = ({ children }) => {
                 selectedLong: state.selectedLong,
                 zoom: state.zoom,
                 getCountries,
-                getCountryData
+                getCountryData,
+                setCasesType
             }}>
             {children}
         </countryContext.Provider>

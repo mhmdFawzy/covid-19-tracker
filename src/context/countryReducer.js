@@ -15,10 +15,15 @@ const countryReducer = (state, action) => {
                 ...state,
                 historical: action.payload
             };
+        case 'SET_CASES_TYPE':
+            return {
+                ...state,
+                casesType: action.payload
+            };
         case 'GET_COUNTRY_DATA':
             return {
                 ...state,
-                selectedCountry: action.payload.country,
+                selectedCountry: action.payload,
                 cases: action.payload.cases,
                 recovered: action.payload.recovered,
                 deaths: action.payload.deaths,
