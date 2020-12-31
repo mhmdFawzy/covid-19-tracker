@@ -53,7 +53,6 @@ const CountryState = ({ children }) => {
             axios
                 .get('https://disease.sh/v3/covid-19/all')
                 .then((res) => {
-                    console.log(res.data);
                     dispatch({
                         type: 'GET_COUNTRY_DATA',
                         payload: res.data
@@ -107,7 +106,8 @@ const CountryState = ({ children }) => {
         </countryContext.Provider>
     );
 };
-CountryState.prototype = {
+
+CountryState.propTypes = {
     children: PropTypes.element.isRequired
 };
 export default CountryState;

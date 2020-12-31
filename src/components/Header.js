@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import WindowedSelect, { createFilter } from 'react-windowed-select';
+import WindowedSelect from 'react-windowed-select';
 
 const options = [{ label: 'Worldwide', value: 'all', name: 'Worldwide' }];
 
