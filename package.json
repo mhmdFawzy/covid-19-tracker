@@ -16,6 +16,13 @@
         "react-scripts": "4.0.1",
         "react-windowed-select": "^2.0.4",
         "uuid": "^8.3.2",
+             "eslint": "^7.15.0",
+        "eslint-config-prettier": "^7.0.0",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-prettier": "^3.2.0",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "prettier": "^2.2.1",
         "web-vitals": "^0.2.4"
     },
     "scripts": {
@@ -43,14 +50,6 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "devDependencies": {
-        "eslint": "^7.15.0",
-        "eslint-config-prettier": "^7.0.0",
-        "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-prettier": "^3.2.0",
-        "eslint-plugin-react": "^7.21.5",
-        "eslint-plugin-react-hooks": "^4.2.0",
-        "prettier": "^2.2.1"
     }
+
 }
