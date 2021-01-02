@@ -22,7 +22,7 @@ const Map = ({ data }) => {
   useLayoutEffect(() => {
     setTimeout(() => {
       setMounted(true);
-    }, 80);
+    }, 100);
     return () => {
       setMounted(false);
     };
