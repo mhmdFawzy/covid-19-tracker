@@ -20,6 +20,8 @@ const Map = ({ data }) => {
   };
 
   useLayoutEffect(() => {
+    // setTimeout(function(){ map.invalidateSize()}, 400);
+
     setTimeout(() => {
       setMounted(true);
     }, 200);
