@@ -1,14 +1,11 @@
-import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
-const App = React.lazy(() => import('./App'));
-import 'normalize.css';
-import { ReactComponent as Loader } from './assets/Loader.svg';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import "normalize.css";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Suspense fallback={<Loader />}>
-            <App />
-        </Suspense>
-    </React.StrictMode>,
-    document.getElementById('root')
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
 );

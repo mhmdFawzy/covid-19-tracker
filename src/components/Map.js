@@ -18,13 +18,10 @@ const Map = ({ data }) => {
     map.setView([center[0] - 5, center[1] - 5], zoom);
     return null;
   };
-
   useLayoutEffect(() => {
-    // setTimeout(function(){ map.invalidateSize()}, 400);
-
     setTimeout(() => {
       setMounted(true);
-    }, 200);
+    }, 500);
     return () => {
       setMounted(false);
     };
@@ -63,7 +60,6 @@ const Map = ({ data }) => {
               </Popup>
             )}
           </Marker>
-          $
           {countries &&
             showDataOnMap(countries, selectedLat, selectedLong, casesType)}
         </MapContainer>
